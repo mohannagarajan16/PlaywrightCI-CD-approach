@@ -21,5 +21,5 @@ test('Third test' ,async({page})=>{
     await page.locator('#password').type('learning');
     await page.locator('#signInBtn').click();
     console.log(await page.locator("[style*='block']").textContent());
-    await expect(page.locator("[style*='block']")).toContainText('Incorrect');
+    await expect(page.locator("[style*='block']")).toContainText('login page practise | Rahul Shetty Academy');
 });
