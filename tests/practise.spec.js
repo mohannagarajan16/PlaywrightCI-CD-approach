@@ -1,7 +1,7 @@
 const {test,expect} = require('@playwright/test');
 
 
-test.only('practise test',async ({page})=>{
+test('practise test',async ({page})=>{
     await page.goto('https://rahulshettyacademy.com/client/#/auth/register');
     await page.locator('#firstName').type('Mohan');
     await page.locator('#lastName').type('Nagarajan');
@@ -10,8 +10,8 @@ test.only('practise test',async ({page})=>{
     await page.locator('select:visible').selectOption('Engineer');
     
     await page.locator("input[value='Male']").click();
-    await page.locator('#userPassword').type('test@123');
-    await page.locator('#confirmPassword').type('test@123');
+    await page.locator('#userPassword').type('test@123A');
+    await page.locator('#confirmPassword').type('test@123A');
     await page.evaluate(() => window.scrollTo(0, 500));
     await page.getByRole('checkbox').click();
     await page.locator("#login").click();
