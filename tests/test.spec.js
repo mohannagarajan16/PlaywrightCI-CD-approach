@@ -21,16 +21,22 @@ test('first login test', async ({ page }) => {
   // test steps go here
 }); 
 
-test.only('child window handling', async ({ browser }) => {
+test('child window handling', async ({ browser }) => {
 
   const context = await browser.newContext();
-  const page = await context.newPage();
-  await page.goto('https://rahulshettyacademy.com/loginpagePractise/'); 
-  await page.locator(".blinkingText[href='https://rahulshettyacademy.com/documents-request']").click();
-  const pages = context.pages();
-  const childPage = pages[1];
-  await childPage.waitForLoadState();
-  const text = await childPage.locator('.im-para.red').textContent();
-  console.log(text);  
-});
+  const page1 = await context.newPage();
+  await page1.goto('https://rahulshettyacademy.com/loginpagePractise/'); 
+  await page1.locator(".blinkingText[href='https://rahulshettyacademy.com/documents-request']").click();
+  const page2= await context.waitForEvent('page');
+  await page2.waitForLoadState();
+  const text = await page2.locator('p.im-para.red').textContent();
+  console.log(text);
+  await expect(text).toContain('testing');
+  await page2.pause();
+//  const pages = context.pages();
+//   const childPage = pages[1];
+//   await childPage.waitForLoadState();
+//   const text = await childPage.locator('.im-para.red').textContent();
+//   console.log(text);  
+ });
 

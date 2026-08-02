@@ -17,6 +17,7 @@ export default defineConfig({
   timeout: 30 * 1000,
   expect: {
     timeout: 5 * 1000
+    
   },
    reporter: 'html',
 
@@ -24,6 +25,9 @@ export default defineConfig({
     
     browserName: 'chromium',
     headless: false,
+    screenshot: 'on',
+    video: 'retain-on-failure',
+    trace: 'on',
   },
 
   
