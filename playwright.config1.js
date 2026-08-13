@@ -23,20 +23,21 @@ export default defineConfig({
   },
    reporter: 'html',
 
-  use: {
-    
-    
-    headless: false,
-    screenshot: 'on',
-    video: 'retain-on-failure',
-    trace:'on',
-    
-  },
   projects: [
-    {name: 'chromium', use: { ...devices['Desktop Chrome'] }},
-   // {name: 'firefox', use: { ...devices['Desktop Firefox'] }},
-   // {name: 'webkit', use: { ...devices['Desktop Safari'] }},
-    //{name: 'Mobile Chrome', use: { ...devices['Pixel 5'] }},
+   {name: 'chromium', use: { ...devices['Desktop Chrome'] }},
+   {name: 'firefox', use: { ...devices['Desktop Firefox'] }},
+   {name: 'webkit',
+    
+    use: { 
+          ...devices['Desktop Safari'],
+          ...devices['iPhone 13'],
+          headless: false,
+    screenshot: 'on',
+    video:'retain-on-failure',
+    trace:'on',
+              
+    }},
+    {name: 'Mobile Chrome', use: { ...devices['Pixel 5'] }},
   ]
   
 });

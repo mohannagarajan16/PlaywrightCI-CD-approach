@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-test.only('Child Window', async({browser})=>{
+test('Child Window', async({browser})=>{
     const context = await browser.newContext();({
     recordVideo: { dir: 'test-results/videos/' }
   });
