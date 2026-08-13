@@ -1,7 +1,7 @@
 import {test, expect} from '@playwright/test';
 //import { POManager } from '../pageobjects/POManager';  
-//const { POManager } = require('../pageobjects/POManager'); 
-const { POManager } = require('../../pageobjects/POManager')
+const { POManager } = require('../../pageobjects/POManager'); 
+
 
 test('login test',async ({page})=>{
     const POmanager = new POManager(page);
