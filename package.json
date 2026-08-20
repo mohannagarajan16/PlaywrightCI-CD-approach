@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test tests/webappapi.spec.js --headed"
+    "WebAPI": "npx playwright test tests/webappapi.spec.js --headed",
+    "POMtest" : "npx playwright test tests/testloginPO.spec.js  --headed",
+    "EEtest" :  "npx playwright test tests/testlogin.spec.js  --headed",
+    "cucumbertest" :"npx cucumber-js features/Ecommerce.feature --exit",
+    "cusconfig" : "npx playwright test tests/test.spec.js --config=playwright.config1.js"
+
+
+
   },
   "keywords": [],
   "author": "",

@@ -1,19 +1,25 @@
 const {test, expect} = require('@playwright/test');
 const { POManager } = require('../pageobjects/POManager.js')
+const dataSet = JSON.parse(JSON.stringify(require('../tests/utils/placeordertestdata.json')))
 //testing checkout one
-
-test('login test',async ({page})=>{
+for (const data of dataSet)
+{
+test(`login testing for ${data.productname}`, { tag: '@smoke' },async ({page})=> {
     const POmanager = new POManager(page);
-    const productname ='iphone 13 pro';
-    const username = 'mohannagarajan16@gmail.com';
-    const password = 'test@123A';
+    //const productname ='iphone 13 pro';
+    // const username = 'mohannagarajan16@gmail.com';
+    // const password = 'test@123A';
+    const username = (data.username);
+    const password = (data.password);
+    const productname =(data.productname);
     const products = await page.locator('.card-body b');
     const loginpage = POmanager.getLoginPage();
     await loginpage.goto();
     await loginpage.login(username,password);
     
     const dashboard = POmanager.getDashboard();
-    await dashboard.searchProduct(productname);
+    await dashboard.searchProduct(data.productname);
+    await page.pause();
     await dashboard.navigationToCart();
     
     const cartpage = POmanager.getCartPage();
@@ -31,6 +37,7 @@ test('login test',async ({page})=>{
 
 }
 )
+}
 //     await page.locator('.card-body').first().waitFor();
 //     const title = await page.locator('.card-body b').allTextContents();
 //     console.log(title);

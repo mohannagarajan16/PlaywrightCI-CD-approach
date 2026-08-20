@@ -23,6 +23,7 @@ test('Get Order Details',async({page})=>{
 async route =>
 {
   const response = await page.request.fetch(route.request());
+  console.log(await page.request.fetch(route.request()));
    let body = JSON.stringify (fakePayLoad);
    route.fulfill(
       {

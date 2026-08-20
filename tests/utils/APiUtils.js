@@ -12,10 +12,16 @@ async getToken(){
 
     });       
     
-    const loginResponseBody = await loginResponse.json();
+//     const loginResponseBody = await loginResponse.json();
+//     const token = loginResponseBody.token;
+//    // console.log(token);
+//     return token;
+ const loginResponseBody = await loginResponse.json();
+    console.log('LOGIN RESPONSE:', loginResponseBody);   // ← add this
     const token = loginResponseBody.token;
-   // console.log(token);
+    console.log('TOKEN:', token);                          // ← add this
     return token;
+
 }
 
 async createOrder(orderPayLoad){

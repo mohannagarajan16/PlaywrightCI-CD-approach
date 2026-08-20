@@ -17,21 +17,22 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
   workers: 1,
-  expect: {
-    timeout: 50 * 1000
-    
-  },
+  expect: {timeout: 50 * 1000  },
    reporter: 'html',
+   retries :1,
+   
 
   use: {
     
-    
+    actionTimeout : 10000,
+    navigationTimeout : 10000,
     headless: false,
     screenshot: 'on',
     video: 'retain-on-failure',
     trace:'on',
     
   },
+  globalTimeout: 100000,
   projects: [
     {name: 'chromium', use: { ...devices['Desktop Chrome'] }},
    // {name: 'firefox', use: { ...devices['Desktop Firefox'] }},
