@@ -1,6 +1,6 @@
 const { Before, After, BeforeStep, AfterStep } = require("@cucumber/cucumber");
 const {test, expect} = require ('@playwright/test');
-const { POManager } = require('../../pageobjects/POManager')
+const { POManager } = require('../../pageobjects/POManager.js');
 const {Given, When, Then} = require ('@cucumber/cucumber');
 const {chromium} = require('playwright'); 
 const { Status } = require("@cucumber/cucumber");

@@ -1,4 +1,4 @@
-class APiUtils {
+class ApiUtils {
     
 constructor(apiContext,loginPayload){
     this.apiContext=apiContext;
@@ -51,4 +51,4 @@ async createOrder(orderPayLoad){
 
 }
 }
-module.exports = { APiUtils };
+module.exports = {ApiUtils};
