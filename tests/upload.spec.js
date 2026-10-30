@@ -1,6 +1,6 @@
 import{test, expect} from '@playwright/test';
 
-test('file uploading', async({page})=>{
+test('file uploading',{tag:'@review'}, async({page})=>{
     await page.goto('https://rahulshettyacademy.com/upload-download-test/');
     await page.locator('#fileinput').setInputFiles('C:/Users/Lenovo/Playwright- Mohan/tests/download.xlsx');
     await page.screenshot({path: 'upload.png'});
